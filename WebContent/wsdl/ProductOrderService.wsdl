@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://productOrder.webService.CDStore.sleek.net" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://productOrder.webService.CDStore.sleek.net" xmlns:intf="http://productOrder.webService.CDStore.sleek.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://productOrder.webService.CDStore.sleek.net" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getAddress">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="type" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAddressResponse">
+    <complexType>
+     <sequence>
+      <element name="getAddressReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOrder">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOrderResponse">
+    <complexType>
+     <sequence>
+      <element name="getOrderReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createOrderedItem">
+    <complexType>
+     <sequence>
+      <element name="OrderedItemJSON" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createOrderedItemResponse">
+    <complexType/>
+   </element>
+   <element name="getAccount">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createOrder">
+    <complexType>
+     <sequence>
+      <element name="purchaseOrderJSON" type="xsd:string"/>
+      <element name="accountJSON" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createOrderResponse">
+    <complexType/>
+   </element>
+   <element name="createAccount">
+    <complexType>
+     <sequence>
+      <element name="acconutJson" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="createAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAddress">
+    <complexType>
+     <sequence>
+      <element name="addressJson" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAddressResponse">
+    <complexType/>
+   </element>
+   <element name="updateAddress">
+    <complexType>
+     <sequence>
+      <element name="addressJson" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAddressResponse">
+    <complexType/>
+   </element>
+   <element name="updateAccount">
+    <complexType>
+     <sequence>
+      <element name="accountJson" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAccountResponse">
+    <complexType/>
+   </element>
+   <element name="getNewOrderId">
+    <complexType/>
+   </element>
+   <element name="getNewOrderIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getNewOrderIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getNewOrderIdRequest">
+
+      <wsdl:part element="impl:getNewOrderId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAddressRequest">
+
+      <wsdl:part element="impl:createAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAccountRequest">
+
+      <wsdl:part element="impl:updateAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAddressRequest">
+
+      <wsdl:part element="impl:getAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrderRequest">
+
+      <wsdl:part element="impl:createOrder" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderRequest">
+
+      <wsdl:part element="impl:getOrder" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrderResponse">
+
+      <wsdl:part element="impl:createOrderResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAccountResponse">
+
+      <wsdl:part element="impl:updateAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccountRequest">
+
+      <wsdl:part element="impl:createAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAddressResponse">
+
+      <wsdl:part element="impl:createAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAddressResponse">
+
+      <wsdl:part element="impl:getAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrderResponse">
+
+      <wsdl:part element="impl:getOrderResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAddressResponse">
+
+      <wsdl:part element="impl:updateAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccountResponse">
+
+      <wsdl:part element="impl:createAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrderedItemRequest">
+
+      <wsdl:part element="impl:createOrderedItem" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountRequest">
+
+      <wsdl:part element="impl:getAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountResponse">
+
+      <wsdl:part element="impl:getAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNewOrderIdResponse">
+
+      <wsdl:part element="impl:getNewOrderIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAddressRequest">
+
+      <wsdl:part element="impl:updateAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createOrderedItemResponse">
+
+      <wsdl:part element="impl:createOrderedItemResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ProductOrderService">
+
+      <wsdl:operation name="getAddress">
+
+         <wsdl:input message="impl:getAddressRequest" name="getAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAddressResponse" name="getAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrder">
+
+         <wsdl:input message="impl:getOrderRequest" name="getOrderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrderResponse" name="getOrderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrderedItem">
+
+         <wsdl:input message="impl:createOrderedItemRequest" name="createOrderedItemRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createOrderedItemResponse" name="createOrderedItemResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccount">
+
+         <wsdl:input message="impl:getAccountRequest" name="getAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccountResponse" name="getAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrder">
+
+         <wsdl:input message="impl:createOrderRequest" name="createOrderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createOrderResponse" name="createOrderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccount">
+
+         <wsdl:input message="impl:createAccountRequest" name="createAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createAccountResponse" name="createAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAddress">
+
+         <wsdl:input message="impl:createAddressRequest" name="createAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createAddressResponse" name="createAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAddress">
+
+         <wsdl:input message="impl:updateAddressRequest" name="updateAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateAddressResponse" name="updateAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAccount">
+
+         <wsdl:input message="impl:updateAccountRequest" name="updateAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateAccountResponse" name="updateAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNewOrderId">
+
+         <wsdl:input message="impl:getNewOrderIdRequest" name="getNewOrderIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNewOrderIdResponse" name="getNewOrderIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProductOrderServiceSoapBinding" type="impl:ProductOrderService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOrder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrderedItem">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createOrderedItemRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createOrderedItemResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createOrder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createOrderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createOrderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNewOrderId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNewOrderIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNewOrderIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProductOrderServiceService">
+
+      <wsdl:port binding="impl:ProductOrderServiceSoapBinding" name="ProductOrderService">
+
+         <wsdlsoap:address location="http://localhost:8080/Cdstore/services/ProductOrderService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

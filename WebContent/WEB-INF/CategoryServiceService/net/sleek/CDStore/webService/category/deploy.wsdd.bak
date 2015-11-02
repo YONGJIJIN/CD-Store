@@ -1,0 +1,40 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CategoryServiceService WSDL service -->
+
+  <service name="CategoryService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://category.webService.CDStore.clover4.net"/>
+      <parameter name="wsdlServiceElement" value="CategoryServiceService"/>
+      <parameter name="schemaQualified" value="http://category.webService.CDStore.clover4.net"/>
+      <parameter name="wsdlServicePort" value="CategoryService"/>
+      <parameter name="className" value="net.clover4.CDStore.webService.category.CategoryServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CategoryService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getCategory" qname="operNS:getCategory" xmlns:operNS="http://category.webService.CDStore.clover4.net" returnQName="retNS:getCategoryReturn" xmlns:retNS="http://category.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://category.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getProductInfo" qname="operNS:getProductInfo" xmlns:operNS="http://category.webService.CDStore.clover4.net" returnQName="retNS:getProductInfoReturn" xmlns:retNS="http://category.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://category.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCategoryList" qname="operNS:getCategoryList" xmlns:operNS="http://category.webService.CDStore.clover4.net" returnQName="retNS:getCategoryListReturn" xmlns:retNS="http://category.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getProductList" qname="operNS:getProductList" xmlns:operNS="http://category.webService.CDStore.clover4.net" returnQName="retNS:getProductListReturn" xmlns:retNS="http://category.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://category.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTrackList" qname="operNS:getTrackList" xmlns:operNS="http://category.webService.CDStore.clover4.net" returnQName="retNS:getTrackListReturn" xmlns:retNS="http://category.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://category.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getProductList getCategory getTrackList getCategoryList getProductInfo"/>
+
+  </service>
+</deployment>

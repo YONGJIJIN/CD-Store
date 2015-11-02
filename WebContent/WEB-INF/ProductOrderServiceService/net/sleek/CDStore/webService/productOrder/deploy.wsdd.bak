@@ -1,0 +1,57 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProductOrderServiceService WSDL service -->
+
+  <service name="ProductOrderService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://productOrder.webService.CDStore.clover4.net"/>
+      <parameter name="wsdlServiceElement" value="ProductOrderServiceService"/>
+      <parameter name="schemaQualified" value="http://productOrder.webService.CDStore.clover4.net"/>
+      <parameter name="wsdlServicePort" value="ProductOrderService"/>
+      <parameter name="className" value="net.clover4.CDStore.webService.productOrder.ProductOrderServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ProductOrderService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getAddress" qname="operNS:getAddress" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" returnQName="retNS:getAddressReturn" xmlns:retNS="http://productOrder.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:type" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getOrder" qname="operNS:getOrder" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" returnQName="retNS:getOrderReturn" xmlns:retNS="http://productOrder.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createOrderedItem" qname="operNS:createOrderedItem" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" soapAction="" >
+        <parameter qname="pns:OrderedItemJSON" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAccount" qname="operNS:getAccount" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" returnQName="retNS:getAccountReturn" xmlns:retNS="http://productOrder.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createOrder" qname="operNS:createOrder" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" soapAction="" >
+        <parameter qname="pns:purchaseOrderJSON" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:accountJSON" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createAccount" qname="operNS:createAccount" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" returnQName="retNS:createAccountReturn" xmlns:retNS="http://productOrder.webService.CDStore.clover4.net" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:acconutJson" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createAddress" qname="operNS:createAddress" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" soapAction="" >
+        <parameter qname="pns:addressJson" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateAddress" qname="operNS:updateAddress" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" soapAction="" >
+        <parameter qname="pns:addressJson" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updateAccount" qname="operNS:updateAccount" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" soapAction="" >
+        <parameter qname="pns:accountJson" xmlns:pns="http://productOrder.webService.CDStore.clover4.net" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNewOrderId" qname="operNS:getNewOrderId" xmlns:operNS="http://productOrder.webService.CDStore.clover4.net" returnQName="retNS:getNewOrderIdReturn" xmlns:retNS="http://productOrder.webService.CDStore.clover4.net" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="updateAddress updateAccount createAddress createAccount getAccount createOrderedItem getNewOrderId getOrder createOrder getAddress"/>
+
+  </service>
+</deployment>

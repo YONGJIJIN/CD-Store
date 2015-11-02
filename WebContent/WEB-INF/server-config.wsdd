@@ -1,0 +1,115 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\develop\java dev\java EE\tomcat\webapps\Cdstore\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="CategoryService" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="getCategory" qname="ns1:getCategory" returnQName="ns1:getCategoryReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://category.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:id" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="getProductInfo" qname="ns2:getProductInfo" returnQName="ns2:getProductInfoReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://category.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getCategoryList" qname="ns3:getCategoryList" returnQName="ns3:getCategoryListReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://category.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getProductList" qname="ns4:getProductList" returnQName="ns4:getProductListReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://category.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="getTrackList" qname="ns5:getTrackList" returnQName="ns5:getTrackListReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://category.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getProductList getCategory getTrackList getCategoryList getProductInfo"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="CategoryService"/>
+  <ns1:parameter name="className" value="net.sleek.CDStore.webService.category.CategoryService"/>
+  <ns1:parameter name="wsdlServicePort" value="CategoryService"/>
+  <ns1:parameter name="schemaQualified" value="http://category.webService.CDStore.sleek.net"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://category.webService.CDStore.sleek.net"/>
+  <ns1:parameter name="wsdlServiceElement" value="CategoryServiceService"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="ProductOrderService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getAddress" qname="ns6:getAddress" returnQName="ns6:getAddressReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://productOrder.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:id" type="xsd:int"/>
+   <ns1:parameter qname="ns6:type" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getOrder" qname="ns7:getOrder" returnQName="ns7:getOrderReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://productOrder.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="createOrderedItem" qname="ns8:createOrderedItem" soapAction="" xmlns:ns8="http://productOrder.webService.CDStore.sleek.net">
+   <ns1:parameter qname="ns8:OrderedItemJSON" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getAccount" qname="ns9:getAccount" returnQName="ns9:getAccountReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://productOrder.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:name" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="createOrder" qname="ns10:createOrder" soapAction="" xmlns:ns10="http://productOrder.webService.CDStore.sleek.net">
+   <ns1:parameter qname="ns10:purchaseOrderJSON" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns10:accountJSON" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="createAccount" qname="ns11:createAccount" returnQName="ns11:createAccountReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://productOrder.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:acconutJson" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="createAddress" qname="ns12:createAddress" soapAction="" xmlns:ns12="http://productOrder.webService.CDStore.sleek.net">
+   <ns1:parameter qname="ns12:addressJson" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="updateAddress" qname="ns13:updateAddress" soapAction="" xmlns:ns13="http://productOrder.webService.CDStore.sleek.net">
+   <ns1:parameter qname="ns13:addressJson" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="updateAccount" qname="ns14:updateAccount" soapAction="" xmlns:ns14="http://productOrder.webService.CDStore.sleek.net">
+   <ns1:parameter qname="ns14:accountJson" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getNewOrderId" qname="ns15:getNewOrderId" returnQName="ns15:getNewOrderIdReturn" returnType="xsd:int" soapAction="" xmlns:ns15="http://productOrder.webService.CDStore.sleek.net" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:parameter name="allowedMethods" value="updateAddress updateAccount createAddress createAccount getAccount createOrderedItem getNewOrderId getOrder createOrder getAddress"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="ProductOrderService"/>
+  <ns1:parameter name="className" value="net.sleek.CDStore.webService.productOrder.ProductOrderService"/>
+  <ns1:parameter name="wsdlServicePort" value="ProductOrderService"/>
+  <ns1:parameter name="schemaQualified" value="http://productOrder.webService.CDStore.sleek.net"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://productOrder.webService.CDStore.sleek.net"/>
+  <ns1:parameter name="wsdlServiceElement" value="ProductOrderServiceService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

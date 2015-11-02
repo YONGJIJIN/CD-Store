@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProductOrderServiceService WSDL service -->
+
+  <service name="ProductOrderService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://productOrder.webService.CDStore.sleek.net"/>
+      <parameter name="wsdlServiceElement" value="ProductOrderServiceService"/>
+      <parameter name="schemaQualified" value="http://productOrder.webService.CDStore.sleek.net"/>
+      <parameter name="wsdlServicePort" value="ProductOrderService"/>
+      <parameter name="className" value="net.sleek.CDStore.webService.productOrder.ProductOrderService"/>
+      <parameter name="wsdlPortType" value="ProductOrderService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" xmlns:retNS="http://productOrder.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAddress" qname="operNS:getAddress" returnQName="retNS:getAddressReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:type" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" xmlns:retNS="http://productOrder.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getOrder" qname="operNS:getOrder" returnQName="retNS:getOrderReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" name="createOrderedItem" qname="operNS:createOrderedItem" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:OrderedItemJSON" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" xmlns:retNS="http://productOrder.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAccount" qname="operNS:getAccount" returnQName="retNS:getAccountReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" name="createOrder" qname="operNS:createOrder" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:purchaseOrderJSON" type="tns:string"/>
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:accountJSON" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" xmlns:retNS="http://productOrder.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createAccount" qname="operNS:createAccount" returnQName="retNS:createAccountReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:acconutJson" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" name="createAddress" qname="operNS:createAddress" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:addressJson" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" name="updateAddress" qname="operNS:updateAddress" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:addressJson" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" name="updateAccount" qname="operNS:updateAccount" soapAction="">
+        <parameter xmlns:pns="http://productOrder.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:accountJson" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://productOrder.webService.CDStore.sleek.net" xmlns:retNS="http://productOrder.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getNewOrderId" qname="operNS:getNewOrderId" returnQName="retNS:getNewOrderIdReturn" returnType="rtns:int" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="updateAddress updateAccount createAddress createAccount getAccount createOrderedItem getNewOrderId getOrder createOrder getAddress"/>
+
+  </service>
+</deployment>

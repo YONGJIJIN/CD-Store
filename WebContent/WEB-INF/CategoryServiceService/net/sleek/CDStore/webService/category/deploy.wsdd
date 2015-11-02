@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CategoryServiceService WSDL service -->
+
+  <service name="CategoryService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://category.webService.CDStore.sleek.net"/>
+      <parameter name="wsdlServiceElement" value="CategoryServiceService"/>
+      <parameter name="schemaQualified" value="http://category.webService.CDStore.sleek.net"/>
+      <parameter name="wsdlServicePort" value="CategoryService"/>
+      <parameter name="className" value="net.sleek.CDStore.webService.category.CategoryService"/>
+      <parameter name="wsdlPortType" value="CategoryService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://category.webService.CDStore.sleek.net" xmlns:retNS="http://category.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCategory" qname="operNS:getCategory" returnQName="retNS:getCategoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://category.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://category.webService.CDStore.sleek.net" xmlns:retNS="http://category.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProductInfo" qname="operNS:getProductInfo" returnQName="retNS:getProductInfoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://category.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://category.webService.CDStore.sleek.net" xmlns:retNS="http://category.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCategoryList" qname="operNS:getCategoryList" returnQName="retNS:getCategoryListReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://category.webService.CDStore.sleek.net" xmlns:retNS="http://category.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProductList" qname="operNS:getProductList" returnQName="retNS:getProductListReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://category.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://category.webService.CDStore.sleek.net" xmlns:retNS="http://category.webService.CDStore.sleek.net" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getTrackList" qname="operNS:getTrackList" returnQName="retNS:getTrackListReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://category.webService.CDStore.sleek.net" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getProductList getCategory getTrackList getCategoryList getProductInfo"/>
+
+  </service>
+</deployment>
